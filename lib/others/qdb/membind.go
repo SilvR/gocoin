@@ -2,23 +2,22 @@ package qdb
 
 import (
 	"os"
-	"unsafe"
 	"reflect"
 	"sync/atomic"
+	"unsafe"
 )
 
 var (
 	membind_use_wrapper bool
-	_heap_alloc func(le uint32) data_ptr_t
-	_heap_free func(ptr data_ptr_t)
-	_heap_store func(v []byte) data_ptr_t
+	_heap_alloc         func(le uint32) data_ptr_t
+	_heap_free          func(ptr data_ptr_t)
+	_heap_store         func(v []byte) data_ptr_t
 )
-
 
 type data_ptr_t unsafe.Pointer
 
 func (v *oneIdx) FreeData() {
-	if v.data==nil {
+	if v.data == nil {
 		return
 	}
 	if membind_use_wrapper {
@@ -31,7 +30,7 @@ func (v *oneIdx) FreeData() {
 
 func (v *oneIdx) Slice() (res []byte) {
 	if membind_use_wrapper {
-		res = *(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{Data:uintptr(v.data), Len:int(v.datlen), Cap:int(v.datlen)}))
+		res = *(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{Data: uintptr(v.data), Len: int(v.datlen), Cap: int(v.datlen)}))
 	} else {
 		res = *(*[]byte)(v.data)
 	}
@@ -62,7 +61,7 @@ func (v *oneIdx) LoadData(f *os.File) {
 		atomic.AddInt64(&ExtraMemoryConsumed, int64(v.datlen))
 		atomic.AddInt64(&ExtraMemoryAllocCnt, 1)
 		f.Seek(int64(v.datpos), os.SEEK_SET)
-		f.Read(*(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{Data:uintptr(v.data), Len:int(v.datlen), Cap:int(v.datlen)})))
+		f.Read(*(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{Data: uintptr(v.data), Len: int(v.datlen), Cap: int(v.datlen)})))
 	} else {
 		ptr := make([]byte, int(v.datlen))
 		v.data = data_ptr_t(&ptr)

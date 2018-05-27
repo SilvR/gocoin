@@ -8,7 +8,6 @@ import (
 	"unsafe"
 )
 
-
 func init() {
 	MembindInit = func() {
 		var (

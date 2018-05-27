@@ -1,15 +1,15 @@
 package main
 
 import (
-	"os"
-	"fmt"
 	"encoding/binary"
+	"fmt"
 	"github.com/SilvR/gocoin/lib/btc"
+	"os"
 )
 
 func main() {
 	var buf [48]byte
-	if len(os.Args)!=2 {
+	if len(os.Args) != 2 {
 		fmt.Println("Specify the filename containing UTXO database")
 		return
 	}

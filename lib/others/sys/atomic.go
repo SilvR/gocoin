@@ -33,7 +33,6 @@ func (b *SyncBool) Store(val bool) {
 	}
 }
 
-
 type SyncInt struct {
 	val int64
 }

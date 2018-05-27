@@ -27,7 +27,6 @@ import (
 	"unsafe"
 )
 
-
 func gcc_HeapAlloc(le uint32) data_ptr_t {
 	return data_ptr_t(C.my_alloc(C.ulong(le)))
 }

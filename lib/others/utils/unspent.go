@@ -75,9 +75,9 @@ func GetUnspentFromBlockchainInfo(addr *btc.BtcAddr) (res utxo.AllUnspentTx, er 
 
 	var result struct {
 		U []struct {
-			TxID   string `json:"tx_hash_big_endian"`
-			Vout   uint32 `json:"tx_output_n"`
-			Value  uint64 `json:"value"`
+			TxID  string `json:"tx_hash_big_endian"`
+			Vout  uint32 `json:"tx_output_n"`
+			Value uint64 `json:"value"`
 		} `json:"unspent_outputs"`
 	}
 
@@ -104,7 +104,6 @@ func GetUnspentFromBlockchainInfo(addr *btc.BtcAddr) (res utxo.AllUnspentTx, er 
 	return
 }
 
-
 func GetUnspentFromBlockcypher(addr *btc.BtcAddr, currency string) (res utxo.AllUnspentTx, er error) {
 	var r *http.Response
 
@@ -122,7 +121,7 @@ func GetUnspentFromBlockcypher(addr *btc.BtcAddr, currency string) (res utxo.All
 	r.Body.Close()
 
 	var result struct {
-		Addr   string `json:"address"`
+		Addr string `json:"address"`
 		Outs []struct {
 			TxID   string `json:"tx_hash"`
 			Vout   uint32 `json:"tx_output_n"`
@@ -154,7 +153,6 @@ func GetUnspentFromBlockcypher(addr *btc.BtcAddr, currency string) (res utxo.All
 	return
 }
 
-
 func GetUnspent(addr *btc.BtcAddr) (res utxo.AllUnspentTx) {
 	var er error
 
@@ -172,7 +170,6 @@ func GetUnspent(addr *btc.BtcAddr) (res utxo.AllUnspentTx) {
 
 	return
 }
-
 
 func GetUnspentTestnet(addr *btc.BtcAddr) (res utxo.AllUnspentTx) {
 	var er error

@@ -5,11 +5,11 @@ import (
 )
 
 func SetCompact(nCompact uint32) (res *big.Int) {
-	size := nCompact>>24
-	neg := (nCompact&0x00800000)!=0
+	size := nCompact >> 24
+	neg := (nCompact & 0x00800000) != 0
 	word := nCompact & 0x007fffff
 	if size <= 3 {
-		word >>= 8*(3-size);
+		word >>= 8 * (3 - size)
 		res = big.NewInt(int64(word))
 	} else {
 		res = big.NewInt(int64(word))
@@ -21,10 +21,9 @@ func SetCompact(nCompact uint32) (res *big.Int) {
 	return res
 }
 
-
 func GetDifficulty(bits uint32) (diff float64) {
-	shift := int(bits >> 24) & 0xff
-	diff = float64(0x0000ffff) / float64(bits & 0x00ffffff)
+	shift := int(bits>>24) & 0xff
+	diff = float64(0x0000ffff) / float64(bits&0x00ffffff)
 	for shift < 29 {
 		diff *= 256.0
 		shift++
@@ -35,7 +34,6 @@ func GetDifficulty(bits uint32) (diff float64) {
 	}
 	return
 }
-
 
 func GetCompact(b *big.Int) uint32 {
 
@@ -61,7 +59,6 @@ func GetCompact(b *big.Int) uint32 {
 	}
 	return compact
 }
-
 
 func CheckProofOfWork(hash *Uint256, bits uint32) bool {
 	return hash.BigInt().Cmp(SetCompact(bits)) <= 0

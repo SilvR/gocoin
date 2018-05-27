@@ -1,8 +1,8 @@
 package sipasec
 
 import (
-	"testing"
 	"encoding/hex"
+	"testing"
 )
 
 var ta = [][3]string{
@@ -60,24 +60,24 @@ func TestVerify1(t *testing.T) {
 		hasz, _ := hex.DecodeString(ta[i][2])
 
 		res := EC_Verify(pkey, sign, hasz)
-		if res!=1 {
+		if res != 1 {
 			t.Error("Verify failed")
 		}
 		hasz[0]++
 		res = EC_Verify(pkey, sign, hasz)
-		if res!=0 {
+		if res != 0 {
 			t.Error("Verify not failed while it should")
 		}
 		res = EC_Verify(pkey[:1], sign, hasz)
-		if res>=0 {
+		if res >= 0 {
 			t.Error("Negative result expected", res)
 		}
 		res = EC_Verify(pkey, sign[:1], hasz)
-		if res>=0 {
+		if res >= 0 {
 			t.Error("Yet negative result expected", res)
 		}
 		res = EC_Verify(pkey, sign, hasz[:1])
-		if res!=0 {
+		if res != 0 {
 			t.Error("Zero expected", res)
 		}
 	}

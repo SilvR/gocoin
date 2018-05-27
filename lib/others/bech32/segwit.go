@@ -45,7 +45,7 @@ func SegwitEncode(hrp string, witver int, witprog []byte) string {
 // returns (0, nil) on error
 func SegwitDecode(hrp, addr string) (witver int, witdata []byte) {
 	hrp_actual, data := Decode(addr)
-	if hrp_actual == "" || len(data)==0 || len(data) > 65 {
+	if hrp_actual == "" || len(data) == 0 || len(data) > 65 {
 		return
 	}
 	if hrp != hrp_actual {

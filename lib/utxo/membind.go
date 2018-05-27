@@ -12,7 +12,7 @@ var (
 	free func([]byte) = func(v []byte) {
 	}
 
-	malloc_and_copy func (v []byte) []byte = func (v []byte) []byte {
+	malloc_and_copy func(v []byte) []byte = func(v []byte) []byte {
 		return v
 	}
 
@@ -20,8 +20,8 @@ var (
 )
 
 var (
-	extraMemoryConsumed int64  // if we are using the glibc memory manager
-	extraMemoryAllocCnt int64  // if we are using the glibc memory manager
+	extraMemoryConsumed int64 // if we are using the glibc memory manager
+	extraMemoryAllocCnt int64 // if we are using the glibc memory manager
 )
 
 func ExtraMemoryConsumed() int64 {

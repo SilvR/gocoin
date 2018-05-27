@@ -283,7 +283,7 @@ func (db *UnspentDB) save() {
 			}
 		}
 
-		btc.WriteVlen(buf, uint64(UtxoIdxLen + len(v)))
+		btc.WriteVlen(buf, uint64(UtxoIdxLen+len(v)))
 		buf.Write(k[:])
 		buf.Write(v)
 		if buf.Len() > 0x10000 {

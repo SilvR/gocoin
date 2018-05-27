@@ -14,16 +14,16 @@ var (
 
 func LockDatabaseDir(GocoinHomeDir string) {
 	os.MkdirAll(GocoinHomeDir, 0770)
-	DbLockFileName = GocoinHomeDir+".lock"
+	DbLockFileName = GocoinHomeDir + ".lock"
 	DbLockFileHndl, _ = os.Open(DbLockFileName)
-	if DbLockFileHndl==nil {
+	if DbLockFileHndl == nil {
 		DbLockFileHndl, _ = os.Create(DbLockFileName)
 	}
-	if DbLockFileHndl==nil {
+	if DbLockFileHndl == nil {
 		goto error
 	}
 
-	if e:=syscall.Flock(int(DbLockFileHndl.Fd()), syscall.LOCK_EX|syscall.LOCK_NB); e!=nil {
+	if e := syscall.Flock(int(DbLockFileHndl.Fd()), syscall.LOCK_EX|syscall.LOCK_NB); e != nil {
 		goto error
 	}
 	return

@@ -8,7 +8,7 @@ func TestParseAmount(t *testing.T) {
 	var tv = []struct {
 		af string
 		ai uint64
-	} {
+	}{
 		{"84.3449", 8434490000},
 		{"84.3448", 8434480000},
 		{"84.3447", 8434470000},
@@ -54,7 +54,7 @@ func TestParseAmount(t *testing.T) {
 	}
 	for i := range tv {
 		res, _ := StringToSatoshis(tv[i].af)
-		if res!=tv[i].ai {
+		if res != tv[i].ai {
 			t.Error("Mismatch at index", i, tv[i].af, res, tv[i].ai)
 		}
 	}

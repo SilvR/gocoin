@@ -3,9 +3,9 @@
 package qdb
 
 import (
-	"unsafe"
 	"reflect"
 	"syscall"
+	"unsafe"
 )
 
 var (
@@ -24,23 +24,22 @@ func win_HeapFree(ptr data_ptr_t) {
 
 func win_AllocPtr(v []byte) data_ptr_t {
 	ptr := win_HeapAlloc(uint32(len(v)))
-	sl := *(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{Data:uintptr(ptr), Len:int(len(v)), Cap:int(len(v))}))
+	sl := *(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{Data: uintptr(ptr), Len: int(len(v)), Cap: int(len(v))}))
 	copy(sl, v)
 	return ptr
 }
-
 
 func init() {
 	if membind_use_wrapper {
 		return
 	}
 	dll, er := syscall.LoadDLL("kernel32.dll")
-	if er!=nil {
+	if er != nil {
 		return
 	}
 	funcGlobalAlloc, _ = dll.FindProc("GlobalAlloc")
 	funcGlobalFree, _ = dll.FindProc("GlobalFree")
-	if funcGlobalAlloc==nil || funcGlobalFree==nil {
+	if funcGlobalAlloc == nil || funcGlobalFree == nil {
 		return
 	}
 	println("Using kernel32.dll for qdb memory bindings")

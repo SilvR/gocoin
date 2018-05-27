@@ -2,8 +2,8 @@ package btc
 
 import (
 	"bytes"
-	"testing"
 	"encoding/hex"
+	"testing"
 )
 
 var ta = [][3]string{
@@ -63,14 +63,12 @@ func TestVerify(t *testing.T) {
 	}
 }
 
-
 func BenchmarkNewSignature(b *testing.B) {
 	ptr, _ := hex.DecodeString(ta[0][1])
 	for i := 0; i < b.N; i++ {
 		NewSignature(ptr[:])
 	}
 }
-
 
 func BenchmarkEcdsaSign(b *testing.B) {
 	var sec, msg [32]byte
@@ -81,7 +79,6 @@ func BenchmarkEcdsaSign(b *testing.B) {
 		EcdsaSign(sec[:], msg[:])
 	}
 }
-
 
 func BenchmarkEcdsaVerify(b *testing.B) {
 	key, _ := hex.DecodeString(ta[0][0])

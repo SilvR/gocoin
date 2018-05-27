@@ -1,38 +1,34 @@
 package sys
 
 import (
-	"os"
-	"runtime"
-	"io/ioutil"
 	"crypto/rand"
 	"encoding/hex"
+	"io/ioutil"
+	"os"
+	"runtime"
 	"runtime/debug"
 )
 
-
-
-
 func BitcoinHome() (res string) {
 	res = os.Getenv("APPDATA")
-	if res!="" {
+	if res != "" {
 		res += "\\Bitcoin\\"
 		return
 	}
 	res = os.Getenv("HOME")
-	if res!="" {
+	if res != "" {
 		res += "/.bitcoin/"
 	}
 	return
 }
 
-
-func is_hex_string(s []byte) (string) {
+func is_hex_string(s []byte) string {
 	var res string
 	for i := range s {
 		c := byte(s[i])
-		if c<='9' && c>='0' || c<='f' && c>='a' || c<='F' && c>='A' {
+		if c <= '9' && c >= '0' || c <= 'f' && c >= 'a' || c <= 'F' && c >= 'A' {
 			res += string(c)
-		} else if c!=' ' && c!='\n' && c!='\r' && c!='\t' {
+		} else if c != ' ' && c != '\n' && c != '\r' && c != '\t' {
 			return ""
 		}
 	}
@@ -44,7 +40,7 @@ func GetRawData(fn string) (dat []byte) {
 	d, er := ioutil.ReadFile(fn)
 	if er == nil {
 		hexdump := is_hex_string(d)
-		if len(hexdump)>=2 || (len(hexdump)&1)==1 {
+		if len(hexdump) >= 2 || (len(hexdump)&1) == 1 {
 			dat, _ = hex.DecodeString(hexdump)
 		} else {
 			dat = d
@@ -55,11 +51,9 @@ func GetRawData(fn string) (dat []byte) {
 	return
 }
 
-
 func ClearBuffer(buf []byte) {
 	rand.Read(buf[:])
 }
-
 
 var secrespass func([]byte) int
 
@@ -69,7 +63,7 @@ func getline(buf []byte) (n int) {
 		ClearBuffer(buf)
 		return -1
 	}
-	for n>0 && buf[n-1]<' ' {
+	for n > 0 && buf[n-1] < ' ' {
 		n--
 		buf[n] = 0
 	}

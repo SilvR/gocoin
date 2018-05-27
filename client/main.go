@@ -2,6 +2,14 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
+	"os"
+	"os/signal"
+	"runtime"
+	"runtime/debug"
+	"time"
+	"unsafe"
+
 	"github.com/SilvR/gocoin"
 	"github.com/SilvR/gocoin/client/common"
 	"github.com/SilvR/gocoin/client/network"
@@ -15,13 +23,6 @@ import (
 	"github.com/SilvR/gocoin/lib/others/peersdb"
 	"github.com/SilvR/gocoin/lib/others/qdb"
 	"github.com/SilvR/gocoin/lib/others/sys"
-	"io/ioutil"
-	"os"
-	"os/signal"
-	"runtime"
-	"runtime/debug"
-	"time"
-	"unsafe"
 )
 
 var (

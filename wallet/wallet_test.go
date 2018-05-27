@@ -1,20 +1,19 @@
 package main
 
 import (
-	"os"
 	"fmt"
-	"testing"
 	"io/ioutil"
+	"os"
+	"testing"
 )
 
 const (
-	SECRET = "test_secret"
-	SEED_PASS = "qwerty12345"
+	SECRET      = "test_secret"
+	SEED_PASS   = "qwerty12345"
 	CONFIG_FILE = "test_wallet.cfg"
 
 	OTHERS = "test_others"
 )
-
 
 func start() error {
 	PassSeedFilename = SECRET
@@ -33,7 +32,6 @@ func stop() {
 	os.Remove(OTHERS)
 }
 
-
 func mkwal_check(t *testing.T, exp string) {
 	reset_wallet()
 	make_wallet()
@@ -44,7 +42,6 @@ func mkwal_check(t *testing.T, exp string) {
 		t.Error("Expected address mismatch", keys[keycnt-1].BtcAddr.String(), exp)
 	}
 }
-
 
 func TestMakeWallet(t *testing.T) {
 	defer stop()
@@ -100,7 +97,6 @@ func TestMakeWallet(t *testing.T) {
 	mkwal_check(t, "19LYstQNGATfFoa8KsPK4N37Z6tojngQaX")
 }
 
-
 func import_check(t *testing.T, pk, exp string) {
 	ioutil.WriteFile(OTHERS, []byte(fmt.Sprintln(pk, exp+"lab")), 0600)
 	reset_wallet()
@@ -116,7 +112,6 @@ func import_check(t *testing.T, pk, exp string) {
 		t.Error("Expected address mismatch", keys[0].BtcAddr.String(), exp)
 	}
 }
-
 
 func TestImportPriv(t *testing.T) {
 	defer stop()

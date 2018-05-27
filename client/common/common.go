@@ -23,8 +23,8 @@ const (
 )
 
 var (
-	LogBuffer = new(bytes.Buffer)
-	Log *log.Logger = log.New(LogBuffer, "", 0)
+	LogBuffer             = new(bytes.Buffer)
+	Log       *log.Logger = log.New(LogBuffer, "", 0)
 
 	BlockChain   *chain.Chain
 	GenesisBlock *btc.Uint256

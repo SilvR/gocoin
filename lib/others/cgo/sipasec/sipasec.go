@@ -162,7 +162,6 @@ static int secp256k1_verify(unsigned char *msg, unsigned char *sig, int siglen, 
 import "C"
 import "unsafe"
 
-
 // Verify ECDSA signature
 func EC_Verify(pkey, sign, hash []byte) int {
 	return int(C.secp256k1_verify((*C.uchar)(unsafe.Pointer(&hash[0])),

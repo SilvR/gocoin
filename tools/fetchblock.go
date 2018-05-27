@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/SilvR/gocoin/lib/btc"
-	"io/ioutil"
-	"github.com/SilvR/gocoin/lib/others/utils"
 	"github.com/SilvR/gocoin"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/others/utils"
+	"io/ioutil"
 	"os"
 )
-
 
 func main() {
 	fmt.Println("Gocoin FetchBlock version", gocoin.Version)
@@ -20,7 +19,7 @@ func main() {
 
 	hash := btc.NewUint256FromString(os.Args[1])
 	bl := utils.GetBlockFromWeb(hash)
-	if bl==nil {
+	if bl == nil {
 		fmt.Println("Error fetching the block")
 	} else {
 		ioutil.WriteFile(bl.Hash.String()+".bin", bl.Raw, 0666)

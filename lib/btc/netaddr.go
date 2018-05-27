@@ -1,15 +1,15 @@
 package btc
 
 import (
-	"fmt"
 	"encoding/binary"
+	"fmt"
 )
 
 type NetAddr struct {
 	Services uint64
-	Ip6 [12]byte
-	Ip4 [4]byte
-	Port uint16
+	Ip6      [12]byte
+	Ip4      [4]byte
+	Port     uint16
 }
 
 func NewNetAddr(b []byte) (na *NetAddr) {
@@ -33,7 +33,6 @@ func (a *NetAddr) Bytes() (res []byte) {
 	binary.BigEndian.PutUint16(res[24:26], a.Port)
 	return
 }
-
 
 func (a *NetAddr) String() string {
 	return fmt.Sprintf("%d.%d.%d.%d:%d", a.Ip4[0], a.Ip4[1], a.Ip4[2], a.Ip4[3], a.Port)

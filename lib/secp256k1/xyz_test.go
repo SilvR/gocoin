@@ -4,7 +4,6 @@ import (
 	"testing"
 )
 
-
 func _TestGejDouble(t *testing.T) {
 	var a, a_exp, r XYZ
 	a.X.SetHex("79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798")
@@ -48,5 +47,3 @@ func TestGejGetX(t *testing.T) {
 		t.Error("get.get_x() fail")
 	}
 }
-
-

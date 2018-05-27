@@ -241,7 +241,6 @@ func get_mempool(par string) {
 	network.GetMP(uint32(conid))
 }
 
-
 func init() {
 	newUi("txload tx", true, load_tx, "Load transaction data from the given file, decode it and store in memory")
 	newUi("txsend stx", true, send_tx, "Broadcast transaction from memory pool (identified by a given <txid>)")

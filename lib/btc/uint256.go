@@ -1,13 +1,13 @@
 package btc
 
 import (
-	"fmt"
 	"bytes"
-	"math/big"
 	"encoding/hex"
+	"fmt"
+	"math/big"
 )
 
-const Uint256IdxLen = 8  // The bigger it is, the more memory is needed, but lower chance of a collision
+const Uint256IdxLen = 8 // The bigger it is, the more memory is needed, but lower chance of a collision
 
 type Uint256 struct {
 	Hash [32]byte
@@ -26,17 +26,16 @@ func NewUint256FromString(s string) (res *Uint256) {
 		//println("NewUint256FromString", s, e.Error())
 		return
 	}
-	if len(d)!=32 {
+	if len(d) != 32 {
 		//println("NewUint256FromString", s, "not 32 bytes long")
 		return
 	}
 	res = new(Uint256)
-	for i := 0; i<32; i++ {
+	for i := 0; i < 32; i++ {
 		res.Hash[31-i] = d[i]
 	}
 	return
 }
-
 
 func NewSha2Hash(data []byte) (res *Uint256) {
 	res = new(Uint256)
@@ -44,15 +43,13 @@ func NewSha2Hash(data []byte) (res *Uint256) {
 	return
 }
 
-
 func (u *Uint256) Bytes() []byte {
 	return u.Hash[:]
 }
 
-
 func (u *Uint256) String() (s string) {
-	for i := 0; i<32; i++ {
-		s+= fmt.Sprintf("%02x", u.Hash[31-i])
+	for i := 0; i < 32; i++ {
+		s += fmt.Sprintf("%02x", u.Hash[31-i])
 	}
 	return
 }
@@ -64,7 +61,6 @@ func (u *Uint256) Equal(o *Uint256) bool {
 func (u *Uint256) Calc(data []byte) {
 	ShaHash(data, u.Hash[:])
 }
-
 
 func BIdx(hash []byte) (o [Uint256IdxLen]byte) {
 	copy(o[:], hash[:Uint256IdxLen])

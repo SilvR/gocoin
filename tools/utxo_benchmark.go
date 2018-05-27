@@ -24,7 +24,7 @@ func main() {
 	}
 
 	sta := time.Now()
-	db := utxo.NewUnspentDb(&utxo.NewUnspentOpts{Dir:dir})
+	db := utxo.NewUnspentDb(&utxo.NewUnspentOpts{Dir: dir})
 	if db == nil {
 		println("place UTXO.db or UTXO.old in the current folder")
 		return

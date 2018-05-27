@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/SilvR/gocoin/lib/btc"
-	"io/ioutil"
-	"github.com/SilvR/gocoin/lib/others/utils"
 	"github.com/SilvR/gocoin"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/others/utils"
+	"io/ioutil"
 	"os"
 )
-
 
 func main() {
 	fmt.Println("Gocoin FetchTx version", gocoin.Version)
@@ -20,7 +19,7 @@ func main() {
 
 	txid := btc.NewUint256FromString(os.Args[1])
 	rawtx := utils.GetTxFromWeb(txid)
-	if rawtx==nil {
+	if rawtx == nil {
 		fmt.Println("Error fetching the transaction")
 	} else {
 		ioutil.WriteFile(txid.String()+".tx", rawtx, 0666)

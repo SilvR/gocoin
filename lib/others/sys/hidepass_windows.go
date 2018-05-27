@@ -1,8 +1,8 @@
 package sys
 
 import (
-	"os"
 	"fmt"
+	"os"
 )
 
 // New method (requires msvcrt.dll):
@@ -23,17 +23,17 @@ func getch() int {
 func enterpassext(b []byte) (n int) {
 	for {
 		chr := byte(getch())
-		if chr==3 {
+		if chr == 3 {
 			// Ctrl+C
 			ClearBuffer(b)
 			os.Exit(0)
 		}
-		if chr==13 || chr==10 {
+		if chr == 13 || chr == 10 {
 			fmt.Println()
 			break // Enter
 		}
-		if chr=='\b' {
-			if n>0 {
+		if chr == '\b' {
+			if n > 0 {
 				n--
 				b[n] = 0
 				fmt.Print("\b \b")
@@ -42,12 +42,12 @@ func enterpassext(b []byte) (n int) {
 			}
 			continue
 		}
-		if chr<' ' {
+		if chr < ' ' {
 			fmt.Print("\007")
 			fmt.Println("\n", chr)
 			continue
 		}
-		if n==len(b) {
+		if n == len(b) {
 			fmt.Print("\007")
 			continue
 		}
@@ -68,7 +68,6 @@ func init() {
 
 	secrespass = enterpassext
 }
-
 
 /*
 Old method (requires mingw):

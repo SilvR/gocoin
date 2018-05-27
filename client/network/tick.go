@@ -32,7 +32,7 @@ func (c *OneConnection) ExpireBlocksToGet(now *time.Time, curr_ping_cnt uint64) 
 		if curr_ping_cnt > v.SentAtPingCnt {
 			common.CountSafe("BlockInprogNotfound")
 			c.counters["BlockTotFound"]++
-		} else if now != nil && now.After(v.start.Add(5 * time.Minute)) {
+		} else if now != nil && now.After(v.start.Add(5*time.Minute)) {
 			common.CountSafe("BlockInprogTimeout")
 			c.counters["BlockTimeout"]++
 		} else {
@@ -191,7 +191,7 @@ func DoNetwork(ad *peersdb.PeerAddr) {
 
 		for {
 			select {
-			case <- con_done:
+			case <-con_done:
 				if e == nil {
 					Mutex_net.Lock()
 					conn.Conn = con
@@ -199,7 +199,7 @@ func DoNetwork(ad *peersdb.PeerAddr) {
 					Mutex_net.Unlock()
 					conn.Run()
 				}
-			case <-time.After(10*time.Millisecond):
+			case <-time.After(10 * time.Millisecond):
 				if !conn.IsBroken() {
 					continue
 				}

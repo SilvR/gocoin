@@ -1,15 +1,15 @@
 package main
 
 import (
+	"encoding/hex"
 	"sync"
+	"syscall"
 	"time"
 	"unsafe"
-	"syscall"
-	"encoding/hex"
 )
 
 var (
-	secp256k1 = syscall.NewLazyDLL("secp256k1.dll")
+	secp256k1     = syscall.NewLazyDLL("secp256k1.dll")
 	DLL_EC_Verify = secp256k1.NewProc("EC_Verify")
 )
 
@@ -29,10 +29,10 @@ func main() {
 	msg, _ := hex.DecodeString("3382219555ddbb5b00e0090f469e590ba1eae03c7f28ab937de330aa60294ed6")
 	var wg sync.WaitGroup
 	sta := time.Now()
-	for i:=0; i<CNT; i++ {
+	for i := 0; i < CNT; i++ {
 		wg.Add(1)
 		go func() {
-			if EC_Verify(key, sig, msg)!=1 {
+			if EC_Verify(key, sig, msg) != 1 {
 				println("Verify error")
 			}
 			wg.Done()

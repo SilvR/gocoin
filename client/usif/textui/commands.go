@@ -10,8 +10,8 @@ import (
 	"github.com/SilvR/gocoin/client/usif"
 	"github.com/SilvR/gocoin/lib/btc"
 	"github.com/SilvR/gocoin/lib/others/peersdb"
-	"github.com/SilvR/gocoin/lib/others/sys"
 	"github.com/SilvR/gocoin/lib/others/qdb"
+	"github.com/SilvR/gocoin/lib/others/sys"
 	"github.com/SilvR/gocoin/lib/utxo"
 	"io/ioutil"
 	"os"
@@ -286,13 +286,13 @@ func dump_block(s string) {
 		crec.Block, _ = btc.NewBlock(crec.Data)
 	}
 	/*
-	if crec.Block.NoWitnessData == nil {
-		crec.Block.BuildNoWitnessData()
-	}
-	if !bytes.Equal(crec.Data, crec.Block.NoWitnessData) {
-		ioutil.WriteFile(h.String()+".old", crec.Block.NoWitnessData, 0700)
-		fmt.Println("Old block saved")
-	}
+		if crec.Block.NoWitnessData == nil {
+			crec.Block.BuildNoWitnessData()
+		}
+		if !bytes.Equal(crec.Data, crec.Block.NoWitnessData) {
+			ioutil.WriteFile(h.String()+".old", crec.Block.NoWitnessData, 0700)
+			fmt.Println("Old block saved")
+		}
 	*/
 
 }
@@ -315,7 +315,7 @@ func set_ulmax(par string) {
 		common.SetUploadLimit(v << 10)
 	}
 	if common.UploadLimit() != 0 {
-		fmt.Printf("Current upload limit is %d KB/s\n", common.UploadLimit() >> 10)
+		fmt.Printf("Current upload limit is %d KB/s\n", common.UploadLimit()>>10)
 	} else {
 		fmt.Println("The upload speed is not limited")
 	}
@@ -327,7 +327,7 @@ func set_dlmax(par string) {
 		common.SetDownloadLimit(v << 10)
 	}
 	if common.DownloadLimit() != 0 {
-		fmt.Printf("Current download limit is %d KB/s\n", common.DownloadLimit() >> 10)
+		fmt.Printf("Current download limit is %d KB/s\n", common.DownloadLimit()>>10)
 	} else {
 		fmt.Println("The download speed is not limited")
 	}

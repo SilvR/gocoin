@@ -8,9 +8,9 @@ package textui
 import (
 	"encoding/hex"
 	"fmt"
-	"github.com/piotrnar/gocoin/client/common"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/script"
+	"github.com/SilvR/gocoin/client/common"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/script"
 	"sync"
 	"sync/atomic"
 	"syscall"

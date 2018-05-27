@@ -5,8 +5,8 @@ import (
 	"sync"
 	"math/big"
 	"encoding/binary"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/utxo"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/utxo"
 )
 
 

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"bytes"
 	"encoding/hex"
-	"github.com/piotrnar/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/btc"
 )
 
 

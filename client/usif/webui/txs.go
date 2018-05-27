@@ -11,11 +11,11 @@ import (
 	"io/ioutil"
 	"encoding/hex"
 	"encoding/json"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/script"
-	"github.com/piotrnar/gocoin/client/common"
-	"github.com/piotrnar/gocoin/client/network"
-	"github.com/piotrnar/gocoin/client/usif"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/script"
+	"github.com/SilvR/gocoin/client/common"
+	"github.com/SilvR/gocoin/client/network"
+	"github.com/SilvR/gocoin/client/usif"
 )
 
 func p_txs(w http.ResponseWriter, r *http.Request) {

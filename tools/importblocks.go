@@ -5,10 +5,10 @@ import (
 	"os"
 	"fmt"
 	"time"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/chain"
-	"github.com/piotrnar/gocoin/lib/others/blockdb"
-	"github.com/piotrnar/gocoin/lib/others/sys"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/chain"
+	"github.com/SilvR/gocoin/lib/others/blockdb"
+	"github.com/SilvR/gocoin/lib/others/sys"
 )
 
 const Trust = true  // Set this to false if you want to re-check all scripts

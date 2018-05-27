@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"io/ioutil"
 	"encoding/binary"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/client/common"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/client/common"
 )
 
 

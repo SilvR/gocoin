@@ -5,9 +5,9 @@ import (
 	//"time"
 	"bytes"
 	"encoding/binary"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/chain"
-	"github.com/piotrnar/gocoin/client/common"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/chain"
+	"github.com/SilvR/gocoin/client/common"
 )
 
 

@@ -3,10 +3,10 @@ package textui
 import (
 	"bytes"
 	"fmt"
-	"github.com/piotrnar/gocoin/client/common"
-	"github.com/piotrnar/gocoin/client/network"
-	"github.com/piotrnar/gocoin/client/wallet"
-	"github.com/piotrnar/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/client/common"
+	"github.com/SilvR/gocoin/client/network"
+	"github.com/SilvR/gocoin/client/wallet"
+	"github.com/SilvR/gocoin/lib/btc"
 	"sort"
 	"strconv"
 )

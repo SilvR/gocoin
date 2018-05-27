@@ -7,8 +7,8 @@ import (
 	"flag"
 	"bytes"
 	"io/ioutil"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/others/ltc"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/others/ltc"
 )
 
 

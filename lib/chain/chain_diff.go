@@ -2,7 +2,7 @@ package chain
 
 import (
 	"math/big"
-	"github.com/piotrnar/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/btc"
 )
 
 const (

@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/piotrnar/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/btc"
 	"io/ioutil"
-	"github.com/piotrnar/gocoin/lib/others/utils"
-	"github.com/piotrnar/gocoin"
+	"github.com/SilvR/gocoin/lib/others/utils"
+	"github.com/SilvR/gocoin"
 	"os"
 )
 

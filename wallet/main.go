@@ -4,9 +4,9 @@ import (
 	"os"
 	"fmt"
 	"flag"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin"
-	"github.com/piotrnar/gocoin/lib/others/sys"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin"
+	"github.com/SilvR/gocoin/lib/others/sys"
 )
 
 var (

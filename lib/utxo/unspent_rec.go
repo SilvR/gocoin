@@ -2,7 +2,7 @@ package utxo
 
 import (
 	//"encoding/binary"
-	"github.com/piotrnar/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/btc"
 )
 
 

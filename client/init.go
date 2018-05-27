@@ -6,11 +6,11 @@ import (
 	"time"
 	"io/ioutil"
 	"crypto/rand"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/utxo"
-	"github.com/piotrnar/gocoin/lib/chain"
-	"github.com/piotrnar/gocoin/client/common"
-	"github.com/piotrnar/gocoin/lib/others/sys"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/utxo"
+	"github.com/SilvR/gocoin/lib/chain"
+	"github.com/SilvR/gocoin/client/common"
+	"github.com/SilvR/gocoin/lib/others/sys"
 )
 
 

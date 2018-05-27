@@ -12,9 +12,9 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"encoding/binary"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/client/common"
-	"github.com/piotrnar/gocoin/lib/others/peersdb"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/client/common"
+	"github.com/SilvR/gocoin/lib/others/peersdb"
 )
 
 

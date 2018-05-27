@@ -8,8 +8,8 @@ package main
 import (
 	"encoding/hex"
 	"fmt"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/script"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/script"
 	"syscall"
 	"unsafe"
 )

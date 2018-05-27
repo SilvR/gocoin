@@ -2,8 +2,8 @@ package rpcapi
 
 import (
 	"encoding/hex"
-	"github.com/piotrnar/gocoin/lib/btc"
-	//"github.com/piotrnar/gocoin/client/common"
+	"github.com/SilvR/gocoin/lib/btc"
+	//"github.com/SilvR/gocoin/client/common"
 )
 
 /*

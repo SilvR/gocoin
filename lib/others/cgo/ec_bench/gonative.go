@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 	"encoding/hex"
-	"github.com/piotrnar/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/btc"
 )
 
 var CNT int = 10e3

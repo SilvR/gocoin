@@ -5,9 +5,9 @@ import (
 	"sync"
 	"errors"
 	"sync/atomic"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/utxo"
-	"github.com/piotrnar/gocoin/lib/script"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/utxo"
+	"github.com/SilvR/gocoin/lib/script"
 )
 
 // TrustedTxChecker is meant to speed up verifying transactions that had

@@ -3,9 +3,9 @@ package network
 import (
 	"sync"
 	"time"
-	"github.com/piotrnar/gocoin/lib/btc"
-	"github.com/piotrnar/gocoin/lib/chain"
-	"github.com/piotrnar/gocoin/lib/others/sys"
+	"github.com/SilvR/gocoin/lib/btc"
+	"github.com/SilvR/gocoin/lib/chain"
+	"github.com/SilvR/gocoin/lib/others/sys"
 )
 
 type OneReceivedBlock struct {
